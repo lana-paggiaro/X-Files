@@ -1,15 +1,14 @@
 package com.example.projetoX.model;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 
 @Entity
 @Table(name="XAlien")
 public class Alien {
     @Id
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int code;
     @Column(nullable = false)
     private String race;

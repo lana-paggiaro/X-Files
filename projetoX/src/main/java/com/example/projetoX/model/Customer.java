@@ -1,16 +1,19 @@
 package com.example.projetoX.model;
 import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 public class Customer {
-    @Column
+    @Column(nullable = false)
     private String name;
     @Id
-    @Column
+    @Column(unique = true, nullable = false)
     private String ssc;
-    @Column
+    @Column(unique = true, nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int codec;
-    @Column
+    @Column(nullable = false)
     private String email;
 
     public String getName() {
