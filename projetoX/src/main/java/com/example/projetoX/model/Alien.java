@@ -11,7 +11,7 @@ public class Alien {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int code;
     @Column(nullable = false)
-    private String race;
+    private String type;
     @Column(nullable = false)
     private double price;
     @Column
@@ -25,12 +25,12 @@ public class Alien {
         this.code = code;
     }
 
-    public String getRace() {
-        return race;
+    public String getType() {
+        return type;
     }
 
-    public void setRace(String race) {
-        this.race = race;
+    public void setType(String type) {
+        this.type = type;
     }
 
     public double getPrice() {

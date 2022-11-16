@@ -35,28 +35,38 @@ public class CustomerController {
         customerRepository.delete(cust);
     }
 
-    @GetMapping("/name/{name}")
+    @GetMapping("/searchName/{name}")
     public List<Customer> listByName(@PathVariable(value="name") String name){
         return customerRepository.findByName(name);
     }
 
-    @GetMapping("/email/{email}")
+    @GetMapping("/searchEmail/{email}")
     public List<Customer> listByEmail(@PathVariable(value="email") String email){
         return customerRepository.findByEmail(email);
     }
 
-    @GetMapping ("/customer/{codec}")
+    @GetMapping ("/searchCode/{codec}")
     public Optional<Customer> searchByCode(@PathVariable(value="codec")int codec) {
         return customerRepository.findById(codec);
     }
 
-    @GetMapping("/nameinitial/[{name}")
+    @GetMapping("/initialName/{name}")
     public List<Customer> listByNameInitial(@PathVariable(value="name") String name){
-        return customerRepository.findByNameInitial(name); /*dando bosta*/
+        return customerRepository.findByNameInitial(name); /*fé*/
     }
 
-    /*@GetMapping("/customercode/{codec}")
+    @GetMapping("/initialEmail/{email}")
+    public List<Customer> listByEmailInitial (@PathVariable(value="email") String email){
+        return customerRepository.findByEmailInitial(email);
+    }
+
+    @GetMapping("/majorCode/{codec}")
     public List<Customer> listByMajorCode(@PathVariable(value="codec") int codec){
         return customerRepository.findByMajorCode(codec);
-    }*/
+    }
+
+    @GetMapping("/name/{name}/email/{email}")
+    public List<Customer> listByNameAndEmail(@PathVariable(value="name")String name,@PathVariable(value="email")String email){
+        return customerRepository.findByNameAndEmail(name, email);
+    }
 }

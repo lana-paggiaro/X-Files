@@ -11,9 +11,15 @@ public interface CustomerRepository extends JpaRepository <Customer, Integer> {
 
     public List<Customer> findByEmail (String email);
 
-    @Query(value="select a from Customer a where a.name like %?1%")
+    @Query("SELECT c FROM Customer c WHERE LOWER(c.name) LIKE ?1%")
     public List<Customer> findByNameInitial(String name);
 
-    /*@Query(value="select a from Customer a where a.codec > ?1")
-    public List<Customer> findByMajorCode (int codec);*/
+    @Query("SELECT c FROM Customer c WHERE LOWER(c.email) LIKE ?1%")
+    public List<Customer> findByEmailInitial(String email);
+
+    @Query(value="SELECT c FROM Customer c WHERE c.codec > ?1")
+    public List<Customer> findByMajorCode (int codec);
+
+    @Query("SELECT c FROM Customer c WHERE LOWER(c.name) LIKE ?1% AND LOWER(c.email) LIKE ?2%")
+    public List<Customer> findByNameAndEmail(String name, String email);
 }
