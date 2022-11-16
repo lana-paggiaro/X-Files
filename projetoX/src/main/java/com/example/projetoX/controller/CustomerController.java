@@ -21,6 +21,20 @@ public class CustomerController {
         customerRepository.save(customer);
     }
 
+    public void updateCustomer(@RequestBody Customer cust){
+        customerRepository.save(cust);
+    }
+
+    @GetMapping(value="/allCustomers")
+    public List<Customer> searchAll (){
+        return customerRepository.findAll();
+    }
+
+    @DeleteMapping
+    public void deleteCustomer(@RequestBody Customer cust){
+        customerRepository.delete(cust);
+    }
+
     @GetMapping("/name/{name}")
     public List<Customer> listByName(@PathVariable(value="name") String name){
         return customerRepository.findByName(name);
