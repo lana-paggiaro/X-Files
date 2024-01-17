@@ -1,5 +1,5 @@
 # Customer and Product API
-Made by Luanna Sachinelli Paggiaro ([Lua-da-tarde](https://github.com/Lua-da-tarde) on GitHub).
+Made by Luanna Sachinelli Paggiaro ([Lila Paggiaro](https://github.com/lila-paggiaro) on GitHub).
 
 ## Attributes
 Aliens      | Customer
